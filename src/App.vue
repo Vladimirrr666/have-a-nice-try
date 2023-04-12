@@ -146,6 +146,7 @@ generateData(currentDate.value);
 
     <div class="calc">
       <div class="floor">
+        <span class="name">基本势</span>
         <span class="num w1">{{ currentDate[0] }}</span>
         <span class="num w1">{{ currentDate[1] - 0 }}</span>
         <span class="num w1">{{ currentDate[2] - 0 }}</span>
@@ -157,6 +158,7 @@ generateData(currentDate.value);
         >
       </div>
       <div class="floor">
+        <span class="name">顺势</span>
         <span class="num w1">{{ b1 }}</span>
         <span class="num w2">{{ b2 }}</span>
         <span class="num w1"
@@ -167,6 +169,7 @@ generateData(currentDate.value);
         >
       </div>
       <div class="floor">
+        <span class="name">逆势</span>
         <span class="num w1">{{ c1 }}</span>
         <span class="num w1">{{ c2 }}</span>
         <span class="num w1"
@@ -177,6 +180,7 @@ generateData(currentDate.value);
         >
       </div>
       <div class="floor">
+        <span class="name">转机</span>
         <span class="num w1"
           >{{ d1
           }}<span v-if="d2"
@@ -217,6 +221,12 @@ generateData(currentDate.value);
 }
 .calc {
   margin: 20px 0;
+}
+.name {
+  display: inline-block;
+  width: 60px;
+  border-right: 1px solid #000;
+  text-align: center;
 }
 .floor:nth-child(1),
 .floor:nth-child(2),
