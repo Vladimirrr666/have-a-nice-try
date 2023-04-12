@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 const show = ref(false);
 const currentDate = ref(dayjs().format("YYYY-M-D").split("-"));
 // const currentDate = ref(["2000", "02", "02"]);
