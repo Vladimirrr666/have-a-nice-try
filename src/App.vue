@@ -22,6 +22,7 @@ const c4 = ref(0);
 const c5 = ref(0);
 const d1 = ref(0);
 const d2 = ref(0);
+const d3 = ref(0);
 const confirmDate = ({ selectedValues }) => {
   tableData.value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   generateData(selectedValues);
@@ -66,6 +67,7 @@ const generateData = (arr) => {
   const d1Temp = String(Number(arr[0]) + b2.value);
   d1.value = arrSum(sepNum(d1Temp));
   d2.value = d1.value > 9 ? arrSum(sepNum(d1.value)) : 0;
+  d3.value = d2.value > 9 ? arrSum(sepNum(d2.value)) : 0;
   let rawList = [
     Number(arr[1]),
     Number(arr[2]),
@@ -84,6 +86,7 @@ const generateData = (arr) => {
     c5.value,
     d1.value,
     d2.value,
+    d3.value,
   ];
   rawList = rawList.filter((i) => i);
   console.log("raw-----", rawList);
@@ -105,7 +108,7 @@ const generateData = (arr) => {
     (c4.value ? c4.value : "") +
     (c5.value ? c5.value : "") +
     d1.value +
-    (d2.value ? d2.value : "");
+    (d2.value ? d2.value : "")+(d3.value ? d3.value : "");
   console.log(totalStr);
   const totalArr = totalStr.split("").map((i) => Number(i));
   console.log(totalArr);
@@ -141,40 +144,40 @@ generateData(currentDate.value);
     </div>
 
     <div class="calc">
-      <div>
-        <span class="num">{{ currentDate[0] }}</span>
-        <span class="num">{{ currentDate[1] - 0 }}</span>
-        <span class="num">{{ currentDate[2] - 0 }}</span>
-        <span class="num"
+      <div class="floor">
+        <span class="num w1">{{ currentDate[0] }}</span>
+        <span class="num w1">{{ currentDate[1] - 0 }}</span>
+        <span class="num w1">{{ currentDate[2] - 0 }}</span>
+        <span class="num w1"
           >{{ a1
           }}<span v-if="a2"
             >/{{ a2 }}<span v-if="a3">/{{ a3 }}</span></span
           ></span
         >
       </div>
-      <div>
-        <span class="num">{{ b1 }}</span>
-        <span class="num">{{ b2 }}</span>
-        <span class="num"
+      <div class="floor">
+        <span class="num w1">{{ b1 }}</span>
+        <span class="num w2">{{ b2 }}</span>
+        <span class="num w1"
           >{{ b3
           }}<span v-if="b4"
             >/{{ b4 }}<span v-if="b5">/{{ b5 }}</span></span
           ></span
         >
       </div>
-      <div>
-        <span class="num">{{ c1 }}</span>
-        <span class="num">{{ c2 }}</span>
-        <span class="num"
+      <div class="floor">
+        <span class="num w1">{{ c1 }}</span>
+        <span class="num w1">{{ c2 }}</span>
+        <span class="num w1"
           >{{ c3
           }}<span v-if="c4"
             >/{{ c4 }}<span v-if="c5">/{{ c5 }}</span></span
           ></span
         >
       </div>
-      <div>
-        <span class="num"
-          >{{ d1 }}<span v-if="d2">/{{ d2 }}</span></span
+      <div class="floor">
+        <span class="num w1"
+          >{{ d1 }}<span v-if="d2">/{{ d2 }}<span v-if="d3">/{{ d3 }}</span></span></span
         >
       </div>
     </div>
@@ -209,10 +212,20 @@ generateData(currentDate.value);
   justify-content: center;
 }
 .calc {
-  margin: 10px 0;
+  margin: 20px 0;
+}
+.floor:nth-child(1), .floor:nth-child(2), .floor:nth-child(3) {
+  border-bottom: 1px solid #000;
 }
 .num {
+  display: inline-block;
   margin: 3px;
+}
+.w1 {
+  width: 60px;
+}
+.w2 {
+  width: 120px;
 }
 .cell {
   width: 60px;
