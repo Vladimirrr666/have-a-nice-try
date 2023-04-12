@@ -108,7 +108,8 @@ const generateData = (arr) => {
     (c4.value ? c4.value : "") +
     (c5.value ? c5.value : "") +
     d1.value +
-    (d2.value ? d2.value : "")+(d3.value ? d3.value : "");
+    (d2.value ? d2.value : "") +
+    (d3.value ? d3.value : "");
   console.log(totalStr);
   const totalArr = totalStr.split("").map((i) => Number(i));
   console.log(totalArr);
@@ -177,7 +178,10 @@ generateData(currentDate.value);
       </div>
       <div class="floor">
         <span class="num w1"
-          >{{ d1 }}<span v-if="d2">/{{ d2 }}<span v-if="d3">/{{ d3 }}</span></span></span
+          >{{ d1
+          }}<span v-if="d2"
+            >/{{ d2 }}<span v-if="d3">/{{ d3 }}</span></span
+          ></span
         >
       </div>
     </div>
@@ -214,7 +218,9 @@ generateData(currentDate.value);
 .calc {
   margin: 20px 0;
 }
-.floor:nth-child(1), .floor:nth-child(2), .floor:nth-child(3) {
+.floor:nth-child(1),
+.floor:nth-child(2),
+.floor:nth-child(3) {
   border-bottom: 1px solid #000;
 }
 .num {
