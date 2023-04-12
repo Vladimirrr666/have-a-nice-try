@@ -23,6 +23,7 @@ const c5 = ref(0);
 const d1 = ref(0);
 const d2 = ref(0);
 const confirmDate = ({ selectedValues }) => {
+  tableData.value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   generateData(selectedValues);
   showDate.value = selectedValues.join("-");
   show.value = false;
