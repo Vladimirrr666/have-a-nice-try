@@ -51,7 +51,7 @@ const generateData = (arr) => {
     .split("")
     .map((i) => Number(i));
   b1.value = arrSum(YearNums);
-  b2.value = arrSum([...MonthNums, ...DayNums]);
+  b2.value = Number(arr[1]) + Number(arr[2]);
   b3.value = b1.value + b2.value;
   b4.value = b3.value > 9 ? arrSum(sepNum(b3.value)) : 0;
   b5.value = b4.value > 9 ? arrSum(sepNum(b4.value)) : 0;
